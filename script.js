@@ -1,121 +1,91 @@
-/**
- * SMARTCON - ESTRATÉGIA DE ALAVANCAGEM PATRIMONIAL
- * script.js - Lógica de interação da Landing Page
- */
+// 3. FORMATAÇÃO DE MOEDA (BRL)
+const formatBRL = (value) => {
+    return Number(value).toLocaleString('pt-BR', {
+        style: 'currency',
+        currency: 'BRL'
+    });
+};
 
-document.addEventListener('DOMContentLoaded', () => {
+// 4. CALCULADORA DE CRÉDITO
+const creditSlider = document.getElementById('credit-slider');
+const creditValDisplay = document.getElementById('credit-val');
+const resFullDisplay = document.getElementById('res-full');
+const resHalfDisplay = document.getElementById('res-half');
 
-    // 1. FORMATBRL - Função para formatação de moeda brasileira
-    const formatBRL = (value) => {
-        return Number(value).toLocaleString('pt-BR', {
-            style: 'currency',
-            currency: 'BRL'
-        });
-    };
+const updateCalculator = () => {
+    if (!creditSlider || !creditValDisplay || !resFullDisplay || !resHalfDisplay) return;
 
-    // 2. CALCULADORA - Lógica de simulação de crédito
-    const slider = document.getElementById('credit-slider');
-    const creditVal = document.getElementById('credit-val');
-    const resFull = document.getElementById('res-full');
-    const resHalf = document.getElementById('res-half');
+    const creditValue = parseFloat(creditSlider.value);
 
-    if (slider && creditVal && resFull && resHalf) {
-        const updateCalculator = () => {
-            const value = parseFloat(slider.value);
+    // ESTIMATIVA VISUAL PROVISÓRIA.
+    // Substituir pelos valores reais da operação antes da publicação definitiva.
+    const taxaAdmEstimada = 1.15; // 15% de taxa administrativa total
+    const prazoMeses = 200;       // Prazo de 200 meses
 
-            /**
-             * ESTIMATIVA VISUAL:
-             * Os valores abaixo representam uma simulação baseada em taxas médias (15% taxa adm / 200 meses).
-             * Devem ser substituídos pelas condições comerciais reais antes da publicação definitiva.
-             */
-            const taxaAdm = 1.15; // 15% de taxa administrativa
-            const prazo = 200;    // 200 meses
+    const totalComTaxa = creditValue * taxaAdmEstimada;
+    const parcelaIntegral = totalComTaxa / prazoMeses;
+    const meiaParcela = parcelaIntegral / 2;
 
-            const totalComTaxa = value * taxaAdm;
-            const parcelaEstimada = totalComTaxa / prazo;
-            const meiaParcela = parcelaEstimada / 2;
+    // Atualização visual dos elementos
+    creditValDisplay.innerText = formatBRL(creditValue);
+    resFullDisplay.innerText = formatBRL(parcelaIntegral);
+    resHalfDisplay.innerText = formatBRL(meiaParcela);
+};
 
-            // Atualização dos elementos no HTML
-            creditVal.innerText = formatBRL(value);
-            resFull.innerText = formatBRL(parcelaEstimada);
-            resHalf.innerText = formatBRL(meiaParcela);
-        };
+// Inicialização da Calculadora
+if (creditSlider) {
+    creditSlider.addEventListener('input', updateCalculator);
+    updateCalculator(); // Roda ao carregar para evitar R$ 0,00
+}
 
-        // Evento de escuta para movimento do slider
-        slider.addEventListener('input', updateCalculator);
+// 5. FAQ (ACCORDION)
+const faqHeaders = document.querySelectorAll('.accordion-header');
 
-        // Inicialização dos valores ao carregar a página
-        updateCalculator();
-    }
+faqHeaders.forEach(header => {
+    header.addEventListener('click', () => {
+        const body = header.nextElementSibling;
+        const isOpen = header.classList.contains('active');
 
-    // 3. WHATSAPP + META PIXEL - Centralização de contato e rastreio
-    window.trackWhatsApp = (contexto) => {
-        const phone = "5512997803859";
-        
-        /**
-         * MENSAGEM PADRÃO: 
-         * Seguindo o padrão da campanha "Saia do Aluguel", a mensagem é única independente do contexto.
-         */
-        const message = "Olá! Vim por um anúncio de vocês e quero simular um crédito.";
-        
-        // Disparo do evento Meta Pixel (somente se a função fbq existir)
-        if (typeof fbq === 'function') {
-            fbq('track', 'Contact');
-        }
-
-        // Construção da URL e abertura em nova aba
-        const encodedMsg = encodeURIComponent(message);
-        const url = `https://api.whatsapp.com/send?phone=${phone}&text=${encodedMsg}`;
-        window.open(url, '_blank');
-    };
-
-    // 4. FAQ - Accordion com fechamento automático de outros itens
-    const faqHeaders = document.querySelectorAll('.accordion-header');
-
-    if (faqHeaders.length > 0) {
-        faqHeaders.forEach(header => {
-            header.addEventListener('click', () => {
-                const body = header.nextElementSibling;
-                const isAlreadyOpen = header.classList.contains('active');
-
-                // Fecha todos os itens abertos antes de abrir o atual
-                faqHeaders.forEach(otherHeader => {
-                    otherHeader.classList.remove('active');
-                    const otherBody = otherHeader.nextElementSibling;
-                    if (otherBody) {
-                        otherBody.style.display = 'none';
-                    }
-                });
-
-                // Se o item clicado não estava aberto, abre-o
-                if (!isAlreadyOpen) {
-                    header.classList.add('active');
-                    if (body) {
-                        body.style.display = 'block';
-                    }
-                }
-            });
-        });
-    }
-
-    // 5. SMOOTH SCROLL - Scroll suave para links internos
-    const internalLinks = document.querySelectorAll('a[href^="#"]');
-
-    internalLinks.forEach(link => {
-        link.addEventListener('click', (e) => {
-            const targetId = link.getAttribute('href');
-            
-            if (targetId !== '#') {
-                const targetElement = document.querySelector(targetId);
-                
-                if (targetElement) {
-                    e.preventDefault();
-                    targetElement.scrollIntoView({
-                        behavior: 'smooth'
-                    });
+        // 1. Fechar qualquer outra pergunta aberta
+        faqHeaders.forEach(otherHeader => {
+            if (otherHeader !== header) {
+                otherHeader.classList.remove('active');
+                const otherBody = otherHeader.nextElementSibling;
+                if (otherBody) {
+                    otherBody.style.display = 'none';
                 }
             }
         });
-    });
 
+        // 2. Alternar o estado da pergunta clicada
+        if (isOpen) {
+            header.classList.remove('active');
+            if (body) body.style.display = 'none';
+        } else {
+            header.classList.add('active');
+            if (body) body.style.display = 'block';
+        }
+    });
+});
+
+// 6. SMOOTH SCROLL (SCROLL SUAVE PARA LINKS INTERNOS)
+const internalLinks = document.querySelectorAll('a[href^="#"]');
+
+internalLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        
+        // Verifica se o href possui um destino válido (não é apenas "#")
+        if (href !== "#" && href.startsWith("#")) {
+            const targetElement = document.querySelector(href);
+            
+            if (targetElement) {
+                e.preventDefault();
+                targetElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        }
+    });
 });
