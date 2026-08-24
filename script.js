@@ -1,67 +1,121 @@
-// Configuração da Calculadora
-const creditSlider = document.getElementById('credit-slider');
-const creditLabel = document.getElementById('credit-label');
-const parcelaFull = document.getElementById('parcela-full');
-const parcelaHalf = document.getElementById('parcela-half');
+/**
+ * SMARTCON - ESTRATÉGIA DE ALAVANCAGEM PATRIMONIAL
+ * script.js - Lógica de interação da Landing Page
+ */
 
-function updateCalculator() {
-    const value = parseInt(creditSlider.value);
-    creditLabel.innerText = value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-    
-    // Cálculos baseados em médias de mercado (apenas para simulação visual)
-    // Estimativa: Prazo 200 meses, Taxa Adm Total 15%
-    const taxaAdm = 1.15;
-    const totalComTaxa = value * taxaAdm;
-    const mensal = totalComTaxa / 200;
-    
-    parcelaFull.innerText = mensal.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-    parcelaHalf.innerText = (mensal / 2).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-}
+document.addEventListener('DOMContentLoaded', () => {
 
-creditSlider.addEventListener('input', updateCalculator);
-updateCalculator();
+    // 1. FORMATBRL - Função para formatação de moeda brasileira
+    const formatBRL = (value) => {
+        return Number(value).toLocaleString('pt-BR', {
+            style: 'currency',
+            currency: 'BRL'
+        });
+    };
 
-// Função de rastreamento e redirecionamento WhatsApp
-function trackWhatsApp(origem) {
-    // Dispara evento do Meta Pixel
-    if (typeof fbq === 'function') {
-        fbq('track', 'Contact');
+    // 2. CALCULADORA - Lógica de simulação de crédito
+    const slider = document.getElementById('credit-slider');
+    const creditVal = document.getElementById('credit-val');
+    const resFull = document.getElementById('res-full');
+    const resHalf = document.getElementById('res-half');
+
+    if (slider && creditVal && resFull && resHalf) {
+        const updateCalculator = () => {
+            const value = parseFloat(slider.value);
+
+            /**
+             * ESTIMATIVA VISUAL:
+             * Os valores abaixo representam uma simulação baseada em taxas médias (15% taxa adm / 200 meses).
+             * Devem ser substituídos pelas condições comerciais reais antes da publicação definitiva.
+             */
+            const taxaAdm = 1.15; // 15% de taxa administrativa
+            const prazo = 200;    // 200 meses
+
+            const totalComTaxa = value * taxaAdm;
+            const parcelaEstimada = totalComTaxa / prazo;
+            const meiaParcela = parcelaEstimada / 2;
+
+            // Atualização dos elementos no HTML
+            creditVal.innerText = formatBRL(value);
+            resFull.innerText = formatBRL(parcelaEstimada);
+            resHalf.innerText = formatBRL(meiaParcela);
+        };
+
+        // Evento de escuta para movimento do slider
+        slider.addEventListener('input', updateCalculator);
+
+        // Inicialização dos valores ao carregar a página
+        updateCalculator();
     }
 
-    const phone = "5512997803859";
-    let message = "";
-
-    if (origem === 'simulacao') {
-        message = "Olá! Vim por um anúncio de vocês e quero simular uma estratégia de alavancagem patrimonial.";
-    } else {
-        message = "Olá! Vim por um anúncio de vocês e quero entender como posso utilizar o consórcio para alavancagem patrimonial.";
-    }
-
-    const encodedMsg = encodeURIComponent(message);
-    const url = `https://api.whatsapp.com/send?phone=${phone}&text=${encodedMsg}`;
-    
-    window.open(url, '_blank');
-}
-
-// Accordion FAQ
-document.querySelectorAll('.accordion-header').forEach(button => {
-    button.addEventListener('click', () => {
-        const body = button.nextElementSibling;
-        button.classList.toggle('active');
-        if (body.style.display === "block") {
-            body.style.display = "none";
-        } else {
-            body.style.display = "block";
+    // 3. WHATSAPP + META PIXEL - Centralização de contato e rastreio
+    window.trackWhatsApp = (contexto) => {
+        const phone = "5512997803859";
+        
+        /**
+         * MENSAGEM PADRÃO: 
+         * Seguindo o padrão da campanha "Saia do Aluguel", a mensagem é única independente do contexto.
+         */
+        const message = "Olá! Vim por um anúncio de vocês e quero simular um crédito.";
+        
+        // Disparo do evento Meta Pixel (somente se a função fbq existir)
+        if (typeof fbq === 'function') {
+            fbq('track', 'Contact');
         }
-    });
-});
 
-// Smooth Scroll
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
+        // Construção da URL e abertura em nova aba
+        const encodedMsg = encodeURIComponent(message);
+        const url = `https://api.whatsapp.com/send?phone=${phone}&text=${encodedMsg}`;
+        window.open(url, '_blank');
+    };
+
+    // 4. FAQ - Accordion com fechamento automático de outros itens
+    const faqHeaders = document.querySelectorAll('.accordion-header');
+
+    if (faqHeaders.length > 0) {
+        faqHeaders.forEach(header => {
+            header.addEventListener('click', () => {
+                const body = header.nextElementSibling;
+                const isAlreadyOpen = header.classList.contains('active');
+
+                // Fecha todos os itens abertos antes de abrir o atual
+                faqHeaders.forEach(otherHeader => {
+                    otherHeader.classList.remove('active');
+                    const otherBody = otherHeader.nextElementSibling;
+                    if (otherBody) {
+                        otherBody.style.display = 'none';
+                    }
+                });
+
+                // Se o item clicado não estava aberto, abre-o
+                if (!isAlreadyOpen) {
+                    header.classList.add('active');
+                    if (body) {
+                        body.style.display = 'block';
+                    }
+                }
+            });
+        });
+    }
+
+    // 5. SMOOTH SCROLL - Scroll suave para links internos
+    const internalLinks = document.querySelectorAll('a[href^="#"]');
+
+    internalLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            const targetId = link.getAttribute('href');
+            
+            if (targetId !== '#') {
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    e.preventDefault();
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            }
         });
     });
+
 });
