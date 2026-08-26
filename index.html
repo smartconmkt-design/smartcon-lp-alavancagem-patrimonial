@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nigel Nunes | Alavancagem Patrimonial e Estratégia</title>
+    <title>Nigel Nunes | Estratégia de Alavancagem Patrimonial</title>
     
-    <link rel="stylesheet" href="style.css">
+    <!-- Tipografia -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 
     <!-- Meta Pixel Code -->
     <script>
@@ -23,219 +23,208 @@
         fbq('init', '760081186775390');
         fbq('track', 'PageView');
     </script>
-    <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=760081186775390&ev=PageView&noscript=1"/></noscript>
+    <noscript>
+        <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=760081186775390&ev=PageView&noscript=1"/>
+    </noscript>
     <!-- End Meta Pixel Code -->
 </head>
 <body>
 
     <!-- 01. HEADER -->
     <header class="main-header">
-        <div class="container header-flex">
-            <img src="assets/images/logo-smartcon.png" alt="Smartcon" class="logo">
-            <nav>
-                <a href="#simulador" class="btn-minimal">QUERO SIMULAR</a>
+        <div class="header-container">
+            <img src="assets/images/logo-smartcon.png" alt="Smartcon Logo" class="logo">
+            <nav class="header-nav">
+                <a href="#simulador" class="cta-link-header">QUERO SIMULAR</a>
             </nav>
         </div>
     </header>
 
     <main>
         <!-- 02. HERO -->
-        <section class="hero-brand">
-            <div class="container hero-brand-grid">
-                <div class="hero-brand-content">
-                    <span class="eyebrow gold">ESTRATÉGIA PATRIMONIAL</span>
-                    <h1 class="title-serif">Se sua empresa parar, sua renda também para?</h1>
-                    <p class="subheadline">Você construiu uma empresa para gerar renda. Agora, como está construindo patrimônio fora dela?</p>
-                    <p class="hero-brand-description">Uma estratégia para empresários que querem ampliar patrimônio através de imóveis sem depender exclusivamente da própria operação.</p>
-                    <button onclick="trackWhatsApp('estrategia')" class="btn btn-black">QUERO ENTENDER A ESTRATÉGIA</button>
+        <section class="hero-section">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <span class="eyebrow">ESTRATÉGIA PATRIMONIAL</span>
+                    <h1 class="editorial-title">Se sua empresa parar hoje, o seu salário também para?</h1>
+                    <p class="subheadline">Deixe que seu patrimônio trabalhe por você.</p>
+                    <p class="hero-description">Com uma estratégia de consórcio, isso pode ser possível.</p>
+                    <button class="cta-primary" onclick="trackWhatsApp('estrategia')">QUERO ENTENDER A ESTRATÉGIA</button>
                 </div>
-                <div class="hero-brand-image">
-                    <img src="assets/images/nigel-hero.jpg" alt="Nigel Nunes">
+                <div class="hero-image-wrapper">
+                    <img src="assets/images/nigel-hero.jpg" alt="Nigel Nunes" class="img-protagonista">
                 </div>
             </div>
         </section>
 
         <!-- 03. MANIFESTO -->
-        <section class="manifesto bg-black">
-            <div class="container center">
-                <div class="manifesto-content">
-                    <h2 class="manifesto-title">Você construiu uma empresa.</h2>
-                    <h2 class="manifesto-title gold">Agora precisa construir patrimônio.</h2>
+        <section class="manifesto-section bg-black">
+            <div class="manifesto-container">
+                <h2 class="manifesto-phrase">Você construiu uma empresa.</h2>
+                <h2 class="manifesto-phrase gold-text">Agora construa patrimônio.</h2>
+            </div>
+        </section>
+
+        <!-- 04. PROBLEMA -->
+        <section class="problem-section">
+            <div class="problem-container">
+                <div class="problem-image">
+                    <img src="assets/images/nigel-patrimonio.jpg" alt="Patrimônio e Estratégia">
+                </div>
+                <div class="problem-content">
+                    <h2 class="section-title">Quanto do seu patrimônio depende da sua empresa?</h2>
+                    <p class="text-block">Você trabalha, sua empresa cresce e o dinheiro volta para a própria operação. Com o tempo, pode acontecer de quase tudo que você construiu depender dela.</p>
+                    
+                    <div class="flow-visual">
+                        <div class="flow-step">EMPRESA</div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-step">RENDA</div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-step">PATRIMÔNIO</div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="flow-step">NOVOS IMÓVEIS</div>
+                    </div>
+                    
+                    <h3 class="impact-phrase">Mas e se a operação parar?</h3>
                 </div>
             </div>
         </section>
 
-        <!-- 04. O PROBLEMA -->
-        <section class="problem-editorial">
-            <div class="container grid-editorial">
-                <div class="editorial-image">
-                    <img src="assets/images/nigel-patrimonio.jpg" alt="Estratégia Patrimonial">
-                </div>
-                <div class="editorial-text">
-                    <h2 class="title-serif">Sua empresa pode ser seu maior ativo. Mas ela não deveria ser sua única fonte de patrimônio.</h2>
-                    <p>É comum o empresário colocar dinheiro, tempo e energia na própria operação durante anos. O problema aparece quando renda e patrimônio continuam concentrados no mesmo lugar.</p>
+        <!-- 05. NIGEL -->
+        <section class="nigel-section">
+            <div class="nigel-container">
+                <div class="nigel-text">
+                    <h2 class="name-title">Nigel Nunes</h2>
+                    <p class="role-desc">Empresário e especialista em estratégias de alavancagem patrimonial através do consórcio.</p>
+                    <p class="bio-text">Ele ajuda empresários a pensar em patrimônio, imóveis e crédito de forma mais estratégica.</p>
                     
-                    <div class="visual-logic">
-                        <div class="logic-step">EMPRESA</div>
-                        <div class="logic-arrow">↓</div>
-                        <div class="logic-step">RENDA</div>
-                        <div class="logic-arrow">↓</div>
-                        <div class="logic-step">PATRIMÔNIO</div>
-                        <div class="logic-arrow">↓</div>
-                        <div class="logic-step gold">NOVOS ATIVOS</div>
-                    </div>
-
-                    <h3 class="question-impact">E se a operação parar?</h3>
-                </div>
-            </div>
-        </section>
-
-        <!-- 05. NIGEL / AUTORIDADE -->
-        <section class="nigel-authority bg-secondary">
-            <div class="container grid-authority">
-                <div class="authority-text">
-                    <span class="eyebrow gold">THE STRATEGIST</span>
-                    <h2 class="title-serif title-large">Nigel Nunes</h2>
-                    <p class="lead">Empresário e especialista em estratégias de alavancagem patrimonial através do consórcio.</p>
-                    <p>Seu trabalho conecta planejamento financeiro, aquisição de ativos e construção patrimonial para empresários que querem pensar além da própria operação.</p>
-                    
-                    <div class="ecosystem-links">
-                        <span class="tag">SMARTCON</span>
-                        <span class="tag">HOST</span>
-                        <span class="tag">CONTEMPLADOS SP</span>
+                    <div class="ecosystem-list">
+                        <span class="eco-item">SMARTCON</span>
+                        <span class="eco-item">HOST</span>
+                        <span class="eco-item">CONTEMPLADOS SP</span>
                     </div>
                 </div>
-                <div class="authority-image">
-                    <img src="assets/images/nigel-perfil.jpg" alt="Nigel Nunes">
+                <div class="nigel-photo">
+                    <img src="assets/images/nigel-perfil.jpg" alt="Nigel Nunes Perfil">
                 </div>
             </div>
         </section>
 
         <!-- 06. TESE PATRIMONIAL -->
-        <section class="thesis-impact">
-            <div class="container center">
-                <h2 class="title-serif impact-text">Seu dinheiro não precisa estar trabalhando em um único lugar.</h2>
+        <section class="thesis-section">
+            <div class="thesis-container">
+                <h2 class="giant-phrase">Patrimônio também precisa de estratégia.</h2>
+                <p class="editorial-sub">Seu dinheiro não precisa estar trabalhando em um único lugar.</p>
                 
-                <div class="thesis-visual-composition">
-                    <div class="thesis-block">
-                        <span class="thesis-label">OPERAÇÃO</span>
-                        <p>gera caixa</p>
+                <div class="strategic-flow">
+                    <div class="strategy-node">
+                        <span class="node-title">EMPRESA</span>
+                        <span class="node-sub">gera renda</span>
                     </div>
-                    <div class="thesis-arrow">↓</div>
-                    <div class="thesis-block highlight">
-                        <span class="thesis-label">ESTRATÉGIA</span>
-                        <p>organiza capital</p>
+                    <div class="flow-arrow">↓</div>
+                    <div class="strategy-node">
+                        <span class="node-title">CAPITAL</span>
+                        <span class="node-sub">é organizado</span>
                     </div>
-                    <div class="thesis-arrow">↓</div>
-                    <div class="thesis-block">
-                        <span class="thesis-label">ATIVOS</span>
-                        <p>compõem patrimônio</p>
+                    <div class="flow-arrow">↓</div>
+                    <div class="strategy-node">
+                        <span class="node-title">IMÓVEIS</span>
+                        <span class="node-sub">constroem patrimônio</span>
                     </div>
                 </div>
-                <p class="thesis-footer">A construção patrimonial começa quando o empresário passa a pensar além do caixa da própria operação.</p>
             </div>
         </section>
 
         <!-- 07. COMO O CONSÓRCIO ENTRA -->
-        <section class="consórcio-strategy bg-black-soft">
-            <div class="container">
-                <div class="section-header-brand">
-                    <h2 class="title-serif white">Onde o consórcio entra nessa estratégia?</h2>
-                    <p class="white-opacity">O consórcio imobiliário pode fazer parte de um planejamento para aquisição de imóveis, utilizando crédito planejado e diferentes possibilidades de contemplação.</p>
-                </div>
+        <section class="consortium-role-section">
+            <div class="consortium-container">
+                <h2 class="section-title">Onde o consórcio entra nessa estratégia?</h2>
+                <p class="text-intro">O consórcio pode ser uma forma de planejar a compra de imóveis sem precisar colocar todo o seu dinheiro de uma vez.</p>
                 
-                <div class="horizontal-flow-container">
-                    <div class="h-flow-item"><span>CAPITAL DISPONÍVEL</span></div>
-                    <div class="h-flow-sep">+</div>
-                    <div class="h-flow-item"><span>PLANEJAMENTO</span></div>
-                    <div class="h-flow-sep">+</div>
-                    <div class="h-flow-item"><span>CONSÓRCIO</span></div>
-                    <div class="h-flow-sep">+</div>
-                    <div class="h-flow-item"><span>ESTRATÉGIA DE LANCE</span></div>
-                    <div class="h-flow-arrow">↓</div>
-                    <div class="h-flow-item gold-box"><span>CONTEMPLAÇÃO</span></div>
-                    <div class="h-flow-arrow">↓</div>
-                    <div class="h-flow-item"><span>CRÉDITO</span></div>
-                    <div class="h-flow-arrow">↓</div>
-                    <div class="h-flow-item"><span>AQUISIÇÃO DO IMÓVEL</span></div>
-                    <div class="h-flow-arrow">↓</div>
-                    <div class="h-flow-item gold-border"><span>COMPOSIÇÃO PATRIMONIAL</span></div>
+                <div class="logical-pathway">
+                    <div class="path-step">PLANEJAMENTO</div>
+                    <div class="path-arrow">↓</div>
+                    <div class="path-step highlighting">CONSÓRCIO</div>
+                    <div class="path-arrow">↓</div>
+                    <div class="path-step">CONTEMPLAÇÃO</div>
+                    <div class="path-arrow">↓</div>
+                    <div class="path-step">CRÉDITO</div>
+                    <div class="path-arrow">↓</div>
+                    <div class="path-step">IMÓVEL</div>
                 </div>
             </div>
         </section>
 
-        <!-- 08. PRESERVAÇÃO DE LIQUIDEZ -->
-        <section class="liquidity-editorial">
-            <div class="container">
-                <div class="editorial-box">
-                    <h2 class="title-serif impact-statement">Comprar um imóvel não deveria significar colocar todo o seu capital dentro dele.</h2>
-                    <p class="editorial-description">Uma estratégia patrimonial também considera quanto capital permanece disponível depois da aquisição.</p>
-                    
-                    <div class="liquidity-logic">
-                        <span>CAPITAL DISPONÍVEL</span>
-                        <span class="plus">+</span>
-                        <span>PLANEJAMENTO</span>
-                        <span class="arrow-right">→</span>
-                        <span class="gold">AQUISIÇÃO DE ATIVOS</span>
-                    </div>
+        <!-- 08. LIQUIDEZ -->
+        <section class="liquidity-section bg-offwhite-alt">
+            <div class="liquidity-container">
+                <h2 class="editorial-title">Você não precisa colocar todo o seu dinheiro em um imóvel.</h2>
+                <p class="text-block">Uma boa estratégia também pensa em quanto dinheiro continua disponível depois da compra. Ter liquidez significa ter dinheiro na mão para outras oportunidades.</p>
+                
+                <div class="liquidity-visual">
+                    <div class="visual-box">DINHEIRO DISPONÍVEL</div>
+                    <div class="visual-plus">+</div>
+                    <div class="visual-box">PLANEJAMENTO</div>
+                    <div class="visual-arrow">↓</div>
+                    <div class="visual-box highlight">COMPRA DE IMÓVEIS</div>
                 </div>
             </div>
         </section>
 
-        <!-- 09. LANCE / CONTEMPLAÇÃO -->
-        <section class="bid-brand bg-secondary">
-            <div class="container grid-editorial reverse">
-                <div class="editorial-image">
-                    <img src="assets/images/nigel-empresarios.jpg" alt="Conversa Estratégica">
-                </div>
-                <div class="editorial-text">
-                    <h2 class="title-serif">Você não precisa depender apenas do sorteio.</h2>
-                    <p>Para quem possui capital disponível, o lance pode ser utilizado como ferramenta estratégica para buscar antecipar a contemplação, sempre de acordo com as regras do grupo.</p>
+        <!-- 09. LANCE -->
+        <section class="bid-section">
+            <div class="bid-container">
+                <div class="bid-content">
+                    <h2 class="section-title">Você não precisa depender apenas do sorteio.</h2>
+                    <p class="text-block">Quem tem dinheiro disponível pode usar o lance para tentar antecipar a contemplação, sempre seguindo as regras do grupo.</p>
                     
-                    <div class="bid-steps">
-                        <p>CAPITAL DISPONÍVEL + ESTRATÉGIA DE LANCE</p>
-                        <p class="arrow-v">↓</p>
-                        <p>BUSCA PELA CONTEMPLAÇÃO</p>
-                        <p class="arrow-v">↓</p>
-                        <p>ACESSO AO CRÉDITO</p>
-                        <p class="arrow-v">↓</p>
-                        <p class="gold">AQUISIÇÃO DO ATIVO</p>
+                    <div class="bid-flow">
+                        <span>DINHEIRO DISPONÍVEL</span>
+                        <span class="flow-plus">+</span>
+                        <span>LANCE</span>
+                        <span class="flow-arrow">↓</span>
+                        <span>TENTATIVA DE ANTECIPAR A CONTEMPLAÇÃO</span>
+                        <span class="flow-arrow">↓</span>
+                        <span>CRÉDITO</span>
+                        <span class="flow-arrow">↓</span>
+                        <span>IMÓVEL</span>
                     </div>
-
-                    <button onclick="trackWhatsApp('possibilidades')" class="btn btn-black">CONHECER POSSIBILIDADES</button>
+                    
+                    <button class="cta-secondary" onclick="trackWhatsApp('possibilidades')">CONHECER POSSIBILIDADES</button>
+                </div>
+                <div class="bid-image">
+                    <img src="assets/images/nigel-empresarios.jpg" alt="Estratégia para Empresários">
                 </div>
             </div>
         </section>
 
         <!-- 10. SERELLO -->
-        <section class="serello-brand">
-            <div class="container center">
-                <img src="assets/images/logo-serello.png" alt="Serello" class="logo-serello-large">
-                <h2 class="title-serif title-large">7 possibilidades de contemplação.</h2>
-                <p class="lead">A estrutura Serello reúne diferentes modalidades de contemplação, permitindo estratégias distintas de acordo com as regras e condições de cada grupo.</p>
+        <section class="serello-section">
+            <div class="serello-container">
+                <img src="assets/images/logo-serello.png" alt="Serello Logo" class="serello-logo">
+                <h2 class="section-title">7 possibilidades de contemplação.</h2>
+                <p class="text-block">A Serello reúne diferentes formas de participar da contemplação, de acordo com as regras de cada grupo.</p>
                 
-                <div class="serello-premium-list">
-                    <div class="s-list-item">SORTEIO</div>
-                    <div class="s-list-item">LANCE ELLO</div>
-                    <div class="s-list-item">ELLO BRONZE</div>
-                    <div class="s-list-item">ELLO PRATA</div>
-                    <div class="s-list-item">ELLO OURO</div>
-                    <div class="s-list-item">SORTEIO DIAMANTE</div>
-                    <div class="s-list-item">LANCE LIVRE</div>
-                </div>
+                <ol class="editorial-list">
+                    <li><span class="list-num">01</span> SORTEIO</li>
+                    <li><span class="list-num">02</span> LANCE ELLO</li>
+                    <li><span class="list-num">03</span> ELLO BRONZE</li>
+                    <li><span class="list-num">04</span> ELLO PRATA</li>
+                    <li><span class="list-num">05</span> ELLO OURO</li>
+                    <li><span class="list-num">06</span> SORTEIO DIAMANTE</li>
+                    <li><span class="list-num">07</span> LANCE LIVRE</li>
+                </ol>
             </div>
         </section>
 
-        <!-- 11. CONSÓRCIO X FINANCIAMENTO -->
-        <section class="comparison-brand">
-            <div class="container">
-                <div class="section-header-brand center">
-                    <h2 class="title-serif">Consórcio ou financiamento?</h2>
-                    <p>São ferramentas diferentes para momentos e estratégias diferentes.</p>
-                </div>
-
-                <div class="comparison-table-wrapper">
-                    <table class="brand-table">
+        <!-- 11. COMPARAÇÃO -->
+        <section class="comparison-section bg-offwhite-alt">
+            <div class="comparison-container">
+                <h2 class="section-title">Consórcio ou financiamento?</h2>
+                <p class="subheadline">São formas diferentes de comprar um imóvel.</p>
+                
+                <div class="table-wrapper">
+                    <table class="comparison-table">
                         <thead>
                             <tr>
                                 <th>CRITÉRIO</th>
@@ -245,24 +234,24 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td>JUROS</td>
-                                <td>Não possui juros. Taxa de adm e custos em contrato.</td>
-                                <td>Possui juros e demais custos da operação.</td>
+                                <td class="criteria-name">JUROS</td>
+                                <td>Não tem juros, mas tem taxa de administração e outros custos previstos no contrato.</td>
+                                <td>Tem juros e outros custos da operação.</td>
                             </tr>
                             <tr>
-                                <td>ACESSO AO CRÉDITO</td>
+                                <td class="criteria-name">ACESSO AO CRÉDITO</td>
                                 <td>Depende da contemplação.</td>
-                                <td>Ocorre conforme aprovação e contratação.</td>
+                                <td>Depende da aprovação e contratação.</td>
                             </tr>
                             <tr>
-                                <td>PLANEJAMENTO</td>
-                                <td>Focado em médio e longo prazo.</td>
-                                <td>Atende necessidades mais imediatas.</td>
+                                <td class="criteria-name">PLANEJAMENTO</td>
+                                <td>Normalmente exige mais planejamento.</td>
+                                <td>Pode atender quem precisa comprar mais rápido.</td>
                             </tr>
                             <tr>
-                                <td>CUSTOS</td>
-                                <td>Taxa de administração e encargos contratuais.</td>
-                                <td>Juros e demais custos da operação bancária.</td>
+                                <td class="criteria-name">CUSTOS</td>
+                                <td>Taxa de administração e outros custos previstos no contrato.</td>
+                                <td>Juros e outros custos da operação.</td>
                             </tr>
                         </tbody>
                     </table>
@@ -270,90 +259,137 @@
             </div>
         </section>
 
-        <!-- 12. PARA QUEM FAZ SENTIDO -->
-        <section class="target-brand bg-secondary">
-            <div class="container center">
-                <h2 class="title-serif title-large">Essa estratégia faz sentido para você se...</h2>
-                <div class="target-grid-brand">
-                    <p class="target-phrase">Você é empresário.</p>
-                    <p class="target-phrase">Já possui capacidade de investimento.</p>
-                    <p class="target-phrase">Quer ampliar sua exposição a imóveis.</p>
-                    <p class="target-phrase">Quer diversificar patrimônio.</p>
-                    <p class="target-phrase">Valoriza planejamento.</p>
-                    <p class="target-phrase">Não precisa do imóvel imediatamente.</p>
+        <!-- 12. PARA QUEM É -->
+        <section class="audience-section">
+            <div class="audience-container">
+                <h2 class="section-title">Essa estratégia faz sentido para você se...</h2>
+                
+                <div class="editorial-composition">
+                    <p class="editorial-item">"Você é empresário."</p>
+                    <p class="editorial-item">"Tem dinheiro disponível para investir."</p>
+                    <p class="editorial-item">"Quer comprar imóveis."</p>
+                    <p class="editorial-item">"Quer construir patrimônio."</p>
+                    <p class="editorial-item">"Quer diversificar o que já conquistou."</p>
+                    <p class="editorial-item">"Não precisa do imóvel imediatamente."</p>
                 </div>
-                <div class="disclaimer-brand">
-                    <p>Talvez não seja a melhor alternativa para quem precisa do imóvel com urgência ou não possui capacidade financeira para assumir o compromisso.</p>
+
+                <div class="disclaimer-box">
+                    <p>Se você precisa do imóvel agora ou não tem condições de assumir as parcelas, talvez essa estratégia não seja a melhor para você.</p>
                 </div>
             </div>
         </section>
 
         <!-- 13. CALCULADORA -->
-        <section id="simulador" class="calculator-brand">
-            <div class="container">
-                <div class="calc-brand-wrapper">
-                    <div class="calc-brand-info">
-                        <h2 class="title-serif">Quanto você poderia estruturar?</h2>
-                        <p>Escolha o crédito que deseja analisar.</p>
+        <section id="simulador" class="calculator-section">
+            <div class="calculator-container">
+                <h2 class="section-title">Quanto você poderia estruturar?</h2>
+                <p class="subheadline">Escolha o crédito que deseja analisar.</p>
+                
+                <div class="simulator-box">
+                    <div class="input-group">
+                        <label for="credit-slider">Crédito Desejado</label>
+                        <input type="range" id="credit-slider" min="200000" max="10000000" step="50000">
+                        <div id="credit-val" class="display-value">R$ 0,00</div>
                     </div>
-                    <div class="calc-brand-box">
-                        <div class="calc-input-row">
-                            <label>Valor do Crédito</label>
-                            <span id="credit-val">R$ 500.000</span>
+
+                    <div class="results-group">
+                        <div class="res-item">
+                            <span class="res-label">Parcela Integral</span>
+                            <div id="res-full" class="res-value">---</div>
                         </div>
-                        <input type="range" id="credit-slider" min="200000" max="5000000" step="50000" value="500000" class="brand-slider">
-                        
-                        <div class="calc-brand-results">
-                            <div class="c-res-item">
-                                <small>PARCELA ESTIMADA</small>
-                                <span id="res-full">R$ 0,00</span>
-                            </div>
-                            <div class="c-res-item gold-border">
-                                <small>MEIA PARCELA (ESTRATÉGICA)</small>
-                                <span id="res-half">R$ 0,00</span>
-                            </div>
+                        <div class="res-item">
+                            <span class="res-label">Parcela Reduzida (Meia)</span>
+                            <div id="res-half" class="res-value">---</div>
                         </div>
-                        <button onclick="trackWhatsApp('simulacao')" class="btn btn-black btn-full">QUERO SIMULAR</button>
+                    </div>
+
+                    <button class="cta-primary-alt" onclick="trackWhatsApp('simulacao')">QUERO SIMULAR</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 14. LIFESTYLE / AUTORIDADE -->
+        <section class="lifestyle-section">
+            <div class="lifestyle-container">
+                <div class="lifestyle-content">
+                    <h2 class="giant-phrase">Patrimônio também é uma decisão empresarial.</h2>
+                    <p class="text-block">Enquanto sua empresa trabalha para gerar renda, seu patrimônio pode começar a construir outra fonte de segurança para o futuro.</p>
+                </div>
+                <div class="lifestyle-image">
+                    <img src="assets/images/nigel-hero.jpg" alt="Nigel Nunes Autoridade">
+                </div>
+            </div>
+        </section>
+
+        <!-- 15. FAQ -->
+        <section class="faq-section">
+            <div class="faq-container">
+                <h2 class="section-title">Dúvidas Frequentes</h2>
+                
+                <div class="accordion">
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <h3>O que é alavancagem patrimonial?</h3>
+                        </div>
+                        <div class="accordion-body">
+                            <p>É uma forma de usar planejamento, dinheiro e crédito para aumentar sua capacidade de comprar imóveis e construir patrimônio.</p>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <h3>Como o consórcio pode fazer parte dessa estratégia?</h3>
+                        </div>
+                        <div class="accordion-body">
+                            <p>O consórcio pode ajudar no planejamento da compra de um imóvel. Você paga as parcelas e, quando for contemplado, recebe o crédito para usar conforme as regras do contrato.</p>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <h3>A contemplação é garantida?</h3>
+                        </div>
+                        <div class="accordion-body">
+                            <p>Não. A contemplação depende das regras do grupo e das formas previstas no contrato, como sorteio e lance.</p>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <h3>Essa estratégia serve para qualquer empresário?</h3>
+                        </div>
+                        <div class="accordion-body">
+                            <p>Não necessariamente. É importante ter planejamento e condições de assumir as parcelas, além de entender que o consórcio não é indicado para quem precisa do imóvel imediatamente.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 14. AUTORIDADE / LIFESTYLE -->
-        <section class="lifestyle-brand-text">
-            <div class="container center">
-                <div class="lifestyle-text-container">
-                    <h2 class="title-serif impact-text-large">Patrimônio também é uma decisão empresarial.</h2>
-                    <p class="lead-soft">Pensar além da operação é o que diferencia quem apenas gera renda de quem constrói ativos reais.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- 15. CTA FINAL -->
-        <section class="final-cta bg-black white">
-            <div class="container center">
-                <h2 class="title-serif title-xl">Seu patrimônio também precisa de estratégia.</h2>
-                <p class="white-opacity">Entenda como uma estrutura de consórcio imobiliário pode fazer parte do seu planejamento patrimonial.</p>
-                <button onclick="trackWhatsApp('final')" class="btn btn-gold btn-large">QUERO ESTRUTURAR MEU PATRIMÔNIO</button>
+        <!-- 16. CTA FINAL -->
+        <section class="final-cta-section bg-deep-black">
+            <div class="final-cta-container">
+                <h2 class="giant-title">Seu patrimônio também precisa de estratégia.</h2>
+                <p class="final-sub">Entenda como o consórcio pode fazer parte do seu planejamento para comprar imóveis e construir patrimônio.</p>
+                <button class="cta-mega" onclick="trackWhatsApp('final')">QUERO ESTRUTURAR MEU PATRIMÔNIO</button>
             </div>
         </section>
     </main>
 
-    <!-- 16. FOOTER -->
-    <footer class="footer-brand">
-        <div class="container footer-grid-brand">
-            <div class="footer-brand-logo">
-                <img src="assets/images/logo-smartcon.png" alt="Smartcon" class="logo">
+    <!-- 17. FOOTER -->
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <img src="assets/images/logo-smartcon.png" alt="Smartcon" class="footer-logo">
             </div>
             <div class="footer-social">
-                <a href="https://www.instagram.com/smartconoficial_/" target="_blank" class="social-link-brand">INSTAGRAM</a>
+                <a href="https://www.instagram.com/smartconoficial_/" target="_blank" class="social-link">Instagram</a>
             </div>
             <div class="footer-copy">
-                <p>© 2026 Smartcon Consórcios e Investimentos.</p>
+                <p>&copy; 2026 Smartcon Consórcios e Investimentos.</p>
             </div>
         </div>
     </footer>
 
-    <script src="script.js"></script>
 </body>
 </html>
