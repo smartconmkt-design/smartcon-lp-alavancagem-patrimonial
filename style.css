@@ -1,26 +1,33 @@
-/*
- * SMARTCON - NIGEL NUNES PERSONAL BRAND DESIGN SYSTEM
- * REFERENCE: Editorial / Premium / Personal Brand
- */
+/* 
+   NIGEL NUNES / SMARTCON 
+   PREMIUM EDITORIAL LANDING PAGE
+   IDENTITY: MODERN, CORPORATE, SOPHISTICATED
+*/
 
 :root {
+    /* Paleta */
     --off-white: #F7F5F0;
-    --off-white-secondary: #EFECE5;
-    --black: #171717;
-    --black-deep: #0D0D0D;
+    --off-white-sec: #EFECE5;
+    --black: #111111;
+    --black-deep: #080808;
     --gold: #B89A5A;
     --gold-light: #D1B878;
-    --text: #292824;
-    --text-soft: #66635D;
-    --border: #D8D2C6;
-    --transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+    --gray: #77736B;
+    
+    /* Tipografia */
+    --font-main: 'Inter', sans-serif;
+    --font-serif: 'Playfair Display', serif;
+    
+    /* Estrutura */
+    --container: 1440px;
+    --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-/* 1. RESET & BASE */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
 }
 
 html {
@@ -28,621 +35,825 @@ html {
 }
 
 body {
-    background: var(--off-white);
-    color: var(--text);
-    font-family: 'Inter', sans-serif;
-    overflow-x: hidden;
-    line-height: 1.6;
-}
-
-img {
-    max-width: 100%;
-    display: block;
-}
-
-h1, h2, h3, .title-serif, .manifesto-title, .impact-text, .large-quote, .impact-statement {
-    font-family: 'Playfair Display', serif;
-    font-weight: 500;
+    font-family: var(--font-main);
+    background-color: var(--off-white);
     color: var(--black);
+    line-height: 1.6;
+    overflow-x: hidden;
 }
 
-.container {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 0 40px;
+/* --- TIPO GERAL --- */
+h1, h2, h3 {
+    line-height: 1.1;
+    font-weight: 600;
 }
 
-.center { text-align: center; }
-.bg-black { background-color: var(--black); color: #FFF; }
-.bg-black-soft { background-color: #1a1a1a; color: #FFF; }
-.bg-secondary { background-color: var(--off-white-secondary); }
-.gold { color: var(--gold) !important; }
-.white { color: #FFF !important; }
-.white-opacity { color: rgba(255, 255, 255, 0.7); }
+p {
+    font-size: 1.125rem;
+    color: var(--gray);
+}
 
-/* 2. HEADER */
+.gold-text {
+    color: var(--gold);
+}
+
+.bg-black {
+    background-color: var(--black);
+    color: var(--off-white);
+}
+
+.bg-deep-black {
+    background-color: var(--black-deep);
+    color: var(--off-white);
+}
+
+.bg-offwhite-alt {
+    background-color: var(--off-white-sec);
+}
+
+/* --- BOTÕES --- */
+button {
+    cursor: pointer;
+    border: none;
+    font-family: var(--font-main);
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: var(--transition);
+    border-radius: 2px;
+}
+
+.cta-primary {
+    background-color: var(--black);
+    color: var(--off-white);
+    padding: 22px 40px;
+    font-size: 0.875rem;
+}
+
+.cta-primary:hover {
+    background-color: var(--gold);
+    transform: translateY(-2px);
+}
+
+.cta-secondary {
+    background-color: transparent;
+    color: var(--black);
+    border: 1px solid var(--black);
+    padding: 18px 36px;
+}
+
+.cta-secondary:hover {
+    background-color: var(--black);
+    color: var(--off-white);
+}
+
+.cta-primary-alt {
+    background-color: var(--gold);
+    color: var(--off-white);
+    padding: 22px 40px;
+    width: 100%;
+}
+
+.cta-mega {
+    background-color: var(--gold);
+    color: var(--off-white);
+    padding: 28px 56px;
+    font-size: 1.125rem;
+}
+
+/* --- HEADER --- */
 .main-header {
-    background: var(--off-white);
-    padding: 22px 0;
-    border-bottom: 1px solid rgba(0,0,0,.08);
-    position: sticky;
+    position: fixed;
     top: 0;
+    width: 100%;
     z-index: 1000;
+    background: rgba(247, 245, 240, 0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(119, 115, 107, 0.15);
 }
 
-.header-flex {
+.header-container {
+    max-width: var(--container);
+    margin: 0 auto;
+    padding: 20px 40px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
 .logo {
-    height: 48px;
-    width: auto;
+    height: 32px;
+    object-fit: contain;
 }
 
-.btn-minimal {
+.cta-link-header {
     text-decoration: none;
     color: var(--black);
     font-weight: 600;
-    font-size: 13px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    border-bottom: 1.5px solid var(--gold);
-    padding-bottom: 4px;
-    transition: var(--transition);
-}
-
-.btn-minimal:hover {
-    color: var(--gold);
-    border-bottom-color: var(--black);
-}
-
-/* 3. BUTTONS */
-.btn {
-    display: inline-block;
-    padding: 18px 42px;
-    font-size: 13px;
-    font-weight: 700;
-    text-transform: uppercase;
+    font-size: 0.75rem;
     letter-spacing: 2px;
-    border-radius: 0;
-    border: none;
-    cursor: pointer;
-    text-decoration: none;
+    border: 1px solid var(--black);
+    padding: 10px 24px;
     transition: var(--transition);
 }
 
-.btn-black {
-    background-color: var(--black);
-    color: #FFF;
+.cta-link-header:hover {
+    background: var(--black);
+    color: var(--off-white);
 }
 
-.btn-black:hover {
-    background-color: var(--gold);
-    transform: translateY(-2px);
+/* --- HERO --- */
+.hero-section {
+    padding-top: 180px;
+    padding-bottom: 100px;
+    min-height: 90vh;
 }
 
-.btn-gold {
-    background-color: var(--gold);
-    color: #FFF;
-}
-
-.btn-gold:hover {
-    background-color: var(--black);
-    transform: translateY(-2px);
-}
-
-.btn-full { width: 100%; text-align: center; }
-.btn-large { padding: 22px 50px; font-size: 14px; }
-
-/* 4. HERO BRAND */
-.hero-brand {
-    min-height: calc(100vh - 90px);
-    display: flex;
-    align-items: center;
-    padding: 80px 0;
-}
-
-.hero-brand-grid {
+.hero-content {
+    max-width: var(--container);
+    margin: 0 auto;
+    padding: 0 40px;
     display: grid;
-    grid-template-columns: 0.9fr 1.1fr;
-    gap: 80px;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 60px;
     align-items: center;
 }
 
 .eyebrow {
     display: block;
-    font-size: 11px;
-    font-weight: 700;
-    text-transform: uppercase;
+    font-size: 0.75rem;
     letter-spacing: 4px;
+    color: var(--gold);
     margin-bottom: 24px;
-}
-
-.hero-brand h1 {
-    font-size: clamp(48px, 6vw, 84px);
-    line-height: 0.98;
-    letter-spacing: -2px;
-    margin-bottom: 32px;
-    max-width: 760px;
-}
-
-.subheadline {
-    font-size: 22px;
     font-weight: 600;
+}
+
+.editorial-title {
+    font-size: clamp(2.8rem, 5.5vw, 5.2rem);
+    line-height: 0.95;
+    letter-spacing: -3px;
+    margin-bottom: 30px;
+    font-weight: 600;
+}
+
+.hero-text .subheadline {
+    font-family: var(--font-serif);
+    font-size: 2.2rem;
+    font-style: italic;
     color: var(--black);
     margin-bottom: 20px;
-    line-height: 1.3;
+    line-height: 1.2;
 }
 
-.hero-brand-description {
-    font-size: 17px;
-    color: var(--text-soft);
-    margin-bottom: 42px;
+.hero-description {
     max-width: 500px;
+    margin-bottom: 40px;
 }
 
-.hero-brand-image img {
+.hero-image-wrapper {
+    position: relative;
+    height: 700px;
+}
+
+.img-protagonista {
     width: 100%;
-    height: 720px;
+    height: 100%;
     object-fit: cover;
-    object-position: top center;
-    border-radius: 2px;
+    filter: grayscale(0.2);
 }
 
-/* 5. MANIFESTO (CINEMATIC) */
-.manifesto {
-    min-height: 75vh;
-    display: flex;
-    align-items: center;
-    padding: 140px 0;
+.hero-image-wrapper::after {
+    content: "";
+    position: absolute;
+    top: 20px;
+    right: -20px;
+    width: 100%;
+    height: 100%;
+    border: 1px solid var(--gold);
+    z-index: -1;
 }
 
-.manifesto-title {
-    font-size: clamp(44px, 7vw, 92px);
+/* --- MANIFESTO --- */
+.manifesto-section {
+    padding: 160px 40px;
+    text-align: center;
+}
+
+.manifesto-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.manifesto-phrase {
+    font-size: clamp(2.5rem, 6vw, 6.5rem);
+    letter-spacing: -2px;
     line-height: 1;
     margin-bottom: 10px;
-    color: #FFF;
 }
 
-/* 6. EDITORIAL GRID (PROBLEMA / LANCE) */
-.problem-editorial, .bid-brand, .nigel-authority, .lifestyle-brand {
-    padding: 140px 0;
+.manifesto-container::before {
+    content: "01";
+    position: absolute;
+    left: 0;
+    top: -40px;
+    font-size: 0.75rem;
+    letter-spacing: 4px;
+    color: var(--gold);
 }
 
-.grid-editorial, .grid-authority {
+/* --- PROBLEMA --- */
+.problem-section {
+    padding: 140px 40px;
+}
+
+.problem-container {
+    max-width: var(--container);
+    margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 100px;
     align-items: center;
 }
 
-.grid-editorial.reverse { direction: rtl; }
-.grid-editorial.reverse .editorial-text { direction: ltr; }
-
-.editorial-image img, .authority-image img {
+.problem-image img {
     width: 100%;
-    aspect-ratio: 4/5;
+    height: 800px;
     object-fit: cover;
-    border-radius: 2px;
 }
 
-.editorial-text h2 {
-    font-size: clamp(34px, 4.5vw, 56px);
-    line-height: 1.1;
-    margin-bottom: 35px;
+.section-title {
+    font-size: 3.5rem;
+    letter-spacing: -1px;
+    margin-bottom: 30px;
 }
 
-.visual-logic {
-    margin-top: 50px;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
+.text-block {
+    margin-bottom: 50px;
+    max-width: 540px;
 }
 
-.logic-step {
-    font-weight: 700;
-    font-size: 14px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-}
-
-.logic-arrow {
-    color: var(--gold);
-    font-weight: bold;
-    padding-left: 2px;
-}
-
-.question-impact {
-    font-size: 32px;
-    margin-top: 60px;
-    font-style: italic;
-}
-
-/* 7. AUTHORITY (NIGEL) */
-.title-large {
-    font-size: clamp(48px, 6vw, 88px);
-    margin: 10px 0 25px;
-}
-
-.lead {
-    font-size: 20px;
-    font-weight: 600;
-    margin-bottom: 20px;
-}
-
-.ecosystem-links {
-    margin-top: 40px;
-    padding-top: 30px;
-    border-top: 1px solid var(--border);
-    display: flex;
-    gap: 30px;
-}
-
-.tag {
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    color: var(--gold);
-}
-
-/* 8. THESIS IMPACT */
-.thesis-impact {
-    padding: 160px 0;
-}
-
-.impact-text {
-    font-size: clamp(42px, 6vw, 82px);
-    line-height: 1.05;
-    margin: 0 auto 80px;
-    max-width: 1100px;
-}
-
-.thesis-visual-composition {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 40px;
-    margin-bottom: 60px;
-}
-
-.thesis-block {
-    text-align: center;
-}
-
-.thesis-label {
-    display: block;
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    margin-bottom: 8px;
-}
-
-.thesis-block p { font-size: 15px; color: var(--text-soft); }
-.thesis-block.highlight .thesis-label { color: var(--gold); font-size: 16px; }
-
-.thesis-arrow { color: var(--border); font-size: 24px; }
-.thesis-footer { font-size: 18px; font-weight: 500; border-top: 1px solid var(--border); padding-top: 40px; display: inline-block; }
-
-/* 9. CONSÓRCIO STRATEGY (DARK) */
-.consórcio-strategy {
-    padding: 140px 0;
-}
-
-.section-header-brand { margin-bottom: 80px; }
-.section-header-brand h2 { font-size: 48px; margin-bottom: 20px; }
-
-.horizontal-flow-container {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 15px;
-}
-
-.h-flow-item span {
-    display: block;
-    padding: 18px 24px;
-    border: 1px solid rgba(255,255,255,0.1);
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-}
-
-.h-flow-sep, .h-flow-arrow { color: var(--gold); font-weight: 700; padding: 0 5px; }
-
-.gold-box span { background: var(--gold); color: #FFF; border-color: var(--gold); }
-.gold-border span { border-color: var(--gold); color: var(--gold); }
-
-/* 10. LIQUIDEZ EDITORIAL */
-.liquidity-editorial {
-    padding: 160px 0;
-}
-
-.impact-statement {
-    font-size: clamp(40px, 6vw, 84px);
-    line-height: 1.05;
-    margin-bottom: 40px;
-    max-width: 1080px;
-}
-
-.editorial-description { font-size: 22px; margin-bottom: 60px; max-width: 700px; }
-
-.liquidity-logic {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    font-weight: 700;
-    font-size: 16px;
-    letter-spacing: 1px;
-}
-
-.liquidity-logic .plus, .liquidity-logic .arrow-right { color: var(--gold); font-size: 24px; }
-
-/* 11. BID STRATEGY */
-.bid-steps {
-    margin: 40px 0;
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-
-.arrow-v { color: var(--gold); margin: 5px 0; }
-
-/* 12. SERELLO BRAND */
-.logo-serello-large {
-    height: 70px;
-    margin-bottom: 40px;
-}
-
-.serello-premium-list {
-    margin: 80px auto 0;
-    max-width: 800px;
-    text-align: left;
-}
-
-.s-list-item {
-    display: block;
-    padding: 24px 0;
-    border-bottom: 1px solid var(--border);
-    font-size: 17px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    transition: var(--transition);
-}
-
-.s-list-item:hover {
-    color: var(--gold);
-    padding-left: 15px;
-}
-
-/* 13. COMPARISON */
-.comparison-table-wrapper {
-    margin-top: 60px;
-    overflow-x: auto;
-}
-
-.brand-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-.brand-table th {
-    background: var(--black);
-    color: #FFF;
-    padding: 24px;
-    text-align: left;
-    font-size: 12px;
-    letter-spacing: 2px;
-}
-
-.brand-table td {
-    padding: 24px;
-    border-bottom: 1px solid var(--border);
-    font-size: 15px;
-}
-
-/* 14. TARGET BRAND */
-.target-grid-brand {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
+.flow-visual {
     margin: 60px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    position: relative;
 }
 
-.target-phrase {
-    font-size: clamp(20px, 3vw, 28px);
+.flow-step {
     font-weight: 600;
-    color: var(--black);
+    letter-spacing: 1px;
+    font-size: 1.25rem;
+    padding-left: 30px;
     border-left: 2px solid var(--gold);
-    padding-left: 25px;
-    text-align: left;
 }
 
-.disclaimer-brand {
-    font-size: 14px;
-    color: var(--text-soft);
-    max-width: 600px;
-    margin: 40px auto 0;
+.flow-arrow {
+    color: var(--gold);
+    padding-left: 30px;
 }
 
-/* 15. CALCULATOR BRAND */
-.calculator-brand { padding: 140px 0; }
+.impact-phrase {
+    font-family: var(--font-serif);
+    font-size: 2.5rem;
+    font-style: italic;
+    margin-top: 40px;
+}
 
-.calc-brand-wrapper {
-    display: grid;
-    grid-template-columns: 0.8fr 1.2fr;
+/* --- NIGEL --- */
+.nigel-section {
+    padding: 140px 40px;
+    background-color: var(--off-white-sec);
+}
+
+.nigel-container {
+    max-width: var(--container);
+    margin: 0 auto;
+    display: flex;
     gap: 80px;
     align-items: center;
 }
 
-.calc-brand-box {
-    background: var(--off-white);
-    border: 1px solid var(--border);
-    padding: 60px;
-    box-shadow: 0 25px 70px rgba(0,0,0,0.06);
+.nigel-text {
+    flex: 1;
 }
 
-.calc-input-row {
-    display: flex;
-    justify-content: space-between;
+.name-title {
+    font-size: 6rem;
+    letter-spacing: -4px;
     margin-bottom: 20px;
-    align-items: flex-end;
 }
 
-.calc-input-row label { font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
+.role-desc {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--black);
+    margin-bottom: 30px;
+}
 
-#credit-val { font-family: 'Playfair Display', serif; font-size: 34px; color: var(--gold); font-weight: 600; }
+.ecosystem-list {
+    margin-top: 60px;
+    display: flex;
+    gap: 40px;
+    border-top: 1px solid rgba(0,0,0,0.1);
+    padding-top: 40px;
+}
 
-.brand-slider {
+.eco-item {
+    font-size: 0.7rem;
+    letter-spacing: 3px;
+    font-weight: 600;
+    color: var(--gray);
+}
+
+.nigel-photo {
+    flex: 1;
+}
+
+.nigel-photo img {
     width: 100%;
-    margin-bottom: 60px;
-    height: 4px;
-    background: var(--border);
-    appearance: none;
-    outline: none;
+    height: 700px;
+    object-fit: cover;
 }
 
-.brand-slider::-webkit-slider-thumb {
-    appearance: none;
-    width: 28px;
-    height: 28px;
+/* --- TESE --- */
+.thesis-section {
+    padding: 140px 40px;
+    text-align: center;
+}
+
+.giant-phrase {
+    font-size: 5rem;
+    letter-spacing: -2px;
+    margin-bottom: 20px;
+}
+
+.editorial-sub {
+    font-family: var(--font-serif);
+    font-size: 1.8rem;
+    font-style: italic;
+    margin-bottom: 80px;
+}
+
+.strategic-flow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+
+.strategy-node {
+    padding: 40px;
+    background: white;
+    border: 1px solid rgba(184, 154, 90, 0.2);
+    min-width: 280px;
+}
+
+.node-title {
+    display: block;
+    font-weight: 600;
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+}
+
+.node-sub {
+    color: var(--gold);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* --- CONSÓRCIO --- */
+.consortium-role-section {
+    padding: 140px 40px;
+    background: var(--black-deep);
+    color: var(--off-white);
+}
+
+.consortium-container {
+    max-width: var(--container);
+    margin: 0 auto;
+}
+
+.logical-pathway {
+    margin-top: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.path-step {
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.path-step.highlighting {
+    color: var(--gold);
+    font-size: 2.5rem;
+    font-family: var(--font-serif);
+}
+
+.path-arrow, .path-plus {
+    color: var(--gray);
+}
+
+/* --- LIQUIDEZ --- */
+.liquidity-section {
+    padding: 140px 40px;
+}
+
+.liquidity-container {
+    max-width: var(--container);
+    margin: 0 auto;
+    text-align: center;
+}
+
+.liquidity-visual {
+    margin-top: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+.visual-box {
+    padding: 50px;
+    border: 1px solid var(--black);
+    font-weight: 600;
+    font-size: 1.25rem;
+    min-width: 300px;
+}
+
+.visual-box.highlight {
     background: var(--black);
-    border: 3px solid var(--gold);
-    border-radius: 0;
-    cursor: pointer;
+    color: var(--off-white);
 }
 
-.calc-brand-results {
+/* --- LANCE --- */
+.bid-section {
+    padding: 140px 40px;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 100px;
+    align-items: center;
+    max-width: var(--container);
+    margin: 0 auto;
+}
+
+.bid-flow {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 40px 0;
+    color: var(--black);
+    font-weight: 600;
+}
+
+.bid-image img {
+    width: 100%;
+    height: 700px;
+    object-fit: cover;
+}
+
+/* --- SERELLO --- */
+.serello-section {
+    padding: 140px 40px;
+}
+
+.serello-container {
+    max-width: var(--container);
+    margin: 0 auto;
+}
+
+.serello-logo {
+    height: 60px;
     margin-bottom: 40px;
 }
 
-.c-res-item {
+.editorial-list {
+    list-style: none;
+    margin-top: 80px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+.editorial-list li {
+    padding: 30px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    font-size: 1.75rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    transition: var(--transition);
+}
+
+.editorial-list li:hover {
+    color: var(--gold);
+    padding-left: 20px;
+}
+
+.list-num {
+    font-size: 0.875rem;
+    color: var(--gold);
+    margin-right: 30px;
+    font-weight: 400;
+}
+
+/* --- COMPARACAO --- */
+.comparison-section {
+    padding: 140px 40px;
+}
+
+.comparison-container {
+    max-width: var(--container);
+    margin: 0 auto;
+}
+
+.table-wrapper {
+    margin-top: 80px;
+    background: white;
+}
+
+.comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.comparison-table th {
+    background: var(--black);
+    color: white;
+    text-align: left;
     padding: 30px;
-    border: 1px solid var(--border);
+    font-weight: 600;
+    letter-spacing: 1px;
 }
 
-.c-res-item small { display: block; font-size: 10px; font-weight: 700; letter-spacing: 1px; color: var(--text-soft); margin-bottom: 12px; }
-.c-res-item span { font-size: 22px; font-weight: 700; color: var(--black); }
-.c-res-item.gold-border { border-color: var(--gold); }
-
-/* 16. LIFESTYLE BRAND TEXT */
-.lifestyle-brand-text { padding: 180px 0; }
-.impact-text-large { font-size: clamp(48px, 8vw, 98px); line-height: 1; margin-bottom: 30px; }
-.lead-soft { font-size: 24px; font-weight: 500; color: var(--text-soft); }
-
-/* 17. FINAL CTA */
-.final-cta {
-    min-height: 75vh;
-    display: flex;
-    align-items: center;
-    padding: 140px 0;
+.comparison-table td {
+    padding: 40px 30px;
+    border-bottom: 1px solid var(--off-white-sec);
+    vertical-align: top;
 }
 
-.title-xl {
-    font-size: clamp(50px, 9vw, 115px);
-    line-height: 0.95;
-    margin-bottom: 50px;
-    color: #FFF;
+.criteria-name {
+    font-weight: 600;
+    color: var(--gold);
+    width: 250px;
 }
 
-/* 18. FOOTER */
-.footer-brand {
+/* --- PARA QUEM --- */
+.audience-section {
+    padding: 140px 40px;
+}
+
+.audience-container {
+    max-width: var(--container);
+    margin: 0 auto;
+}
+
+.editorial-composition {
+    margin-top: 60px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+.editorial-item {
+    font-family: var(--font-serif);
+    font-size: 2.8rem;
+    font-style: italic;
+    color: var(--black);
+    line-height: 1.1;
+}
+
+.disclaimer-box {
+    margin-top: 80px;
+    padding: 40px;
+    border-left: 4px solid var(--gold);
+    background: var(--off-white-sec);
+    max-width: 800px;
+}
+
+/* --- CALCULADORA --- */
+.calculator-section {
+    padding: 140px 40px;
+    background: var(--black);
+    color: var(--off-white);
+}
+
+.simulator-box {
+    margin-top: 60px;
     background: var(--black-deep);
-    padding: 80px 0 40px;
-    color: rgba(255,255,255,0.4);
+    padding: 80px;
+    border: 1px solid rgba(184, 154, 90, 0.3);
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.footer-grid-brand {
+.display-value {
+    font-size: 4.5rem;
+    color: var(--gold);
+    font-weight: 600;
+    margin: 30px 0;
+}
+
+#credit-slider {
+    width: 100%;
+    appearance: none;
+    height: 4px;
+    background: var(--gray);
+    outline: none;
+}
+
+#credit-slider::-webkit-slider-thumb {
+    appearance: none;
+    width: 24px;
+    height: 24px;
+    background: var(--gold);
+    cursor: pointer;
+}
+
+.results-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin: 60px 0;
+}
+
+.res-label {
+    display: block;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    color: var(--gray);
+    margin-bottom: 10px;
+}
+
+.res-value {
+    font-size: 2.5rem;
+    font-weight: 600;
+}
+
+/* --- LIFESTYLE --- */
+.lifestyle-section {
+    padding: 140px 40px;
     display: flex;
-    flex-direction: column;
     align-items: center;
-    gap: 50px;
+    gap: 100px;
+    max-width: var(--container);
+    margin: 0 auto;
 }
 
-.social-link-brand {
+.lifestyle-image img {
+    width: 600px;
+    height: 800px;
+    object-fit: cover;
+}
+
+/* --- FAQ --- */
+.faq-section {
+    padding: 140px 40px;
+}
+
+.faq-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.accordion-item {
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    padding: 30px 0;
+}
+
+.accordion-header h3 {
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.accordion-header h3::after {
+    content: "+";
+    color: var(--gold);
+}
+
+.accordion-body {
+    padding-top: 20px;
+    display: none; /* Controlado pelo JS que será criado depois */
+}
+
+/* --- FINAL CTA --- */
+.final-cta-section {
+    padding: 180px 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.giant-title {
+    font-size: clamp(3rem, 7vw, 7rem);
+    letter-spacing: -4px;
+    margin-bottom: 40px;
+}
+
+.final-sub {
+    font-size: 1.5rem;
+    max-width: 700px;
+    margin: 0 auto 60px;
+}
+
+/* --- FOOTER --- */
+.main-footer {
+    background: var(--black-deep);
+    color: var(--off-white);
+    padding: 80px 40px;
+}
+
+.footer-container {
+    max-width: var(--container);
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-logo {
+    height: 24px;
+    filter: brightness(0) invert(1);
+}
+
+.social-link {
+    color: var(--off-white);
     text-decoration: none;
-    color: #FFF;
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 3px;
-    display: flex;
-    align-items: center;
-    gap: 15px;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    font-weight: 600;
 }
 
-.social-link-brand::before {
-    content: '';
-    width: 20px;
-    height: 20px;
-    border: 1.5px solid var(--gold);
-    display: inline-block;
+.footer-copy {
+    font-size: 0.75rem;
+    color: var(--gray);
 }
 
-.footer-copy p { font-size: 12px; }
-
-/* 19. RESPONSIVE */
-
+/* --- RESPONSIVIDADE --- */
 @media (max-width: 1024px) {
-    .hero-brand-grid, .grid-editorial, .grid-authority, .calc-brand-wrapper {
-        gap: 50px;
+    .hero-content, .problem-container, .nigel-container, .bid-section, .lifestyle-section {
+        grid-template-columns: 1fr;
+        display: flex;
+        flex-direction: column;
+        gap: 60px;
     }
-    .hero-brand h1 { font-size: 64px; }
+
+    .hero-image-wrapper, .problem-image img, .nigel-photo img, .bid-image img, .lifestyle-image img {
+        height: 500px;
+        width: 100%;
+    }
+
+    .strategic-flow, .liquidity-visual {
+        flex-direction: column;
+    }
+
+    .editorial-list {
+        grid-template-columns: 1fr;
+    }
+
+    .editorial-item {
+        font-size: 2rem;
+    }
 }
 
 @media (max-width: 768px) {
-    .container { padding: 0 20px; }
-    
-    .hero-brand-grid, .grid-editorial, .grid-authority, .calc-brand-wrapper, .target-grid-brand, .thesis-visual-composition, .calc-brand-results {
-        grid-template-columns: 1fr;
-        text-align: center;
+    .header-container {
+        padding: 20px;
     }
-
-    .hero-brand-image { order: 2; }
-    .hero-brand-content { order: 1; }
-    .hero-brand-image img { height: 450px; }
-
-    .grid-editorial.reverse { direction: ltr; }
-
-    .horizontal-flow-container { flex-direction: column; align-items: stretch; }
-    .h-flow-sep, .h-flow-arrow { transform: rotate(90deg); margin: 5px 0; padding: 10px 0; }
-
-    .liquidity-logic { flex-direction: column; }
-    .liquidity-logic .arrow-right { transform: rotate(90deg); }
-
-    .thesis-arrow { transform: rotate(90deg); }
     
-    .title-large { font-size: 58px; }
-    .impact-text { font-size: 48px; }
-    .impact-statement { font-size: 42px; }
+    .editorial-title {
+        font-size: 3rem;
+    }
     
-    .calc-brand-box { padding: 30px; }
-    .btn { width: 100%; }
-}
-
-@media (max-width: 480px) {
-    .hero-brand h1 { font-size: 48px; }
-    .manifesto-title { font-size: 42px; }
-    .impact-text-large { font-size: 42px; }
-    .title-xl { font-size: 44px; }
-}
-
-/* 20. ANIMATIONS */
-.hero-brand-content, .manifesto-content, .editorial-text, .calc-brand-box {
-    animation: fadeIn 1.2s ease-out forwards;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
+    .name-title {
+        font-size: 4rem;
+    }
+    
+    .simulator-box {
+        padding: 40px 20px;
+    }
+    
+    .display-value {
+        font-size: 2.5rem;
+    }
+    
+    .results-group {
+        grid-template-columns: 1fr;
+    }
+    
+    .comparison-table {
+        display: block;
+        overflow-x: auto;
+    }
 }
