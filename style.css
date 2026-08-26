@@ -1,10 +1,10 @@
 /* 
  * SMARTCON - NIGEL NUNES DEFINITIVE STYLE
  * Identidade: Editorial Premium (Off-white / Preto / Dourado)
- * Baseado rigorosamente no index.html definitivo.
+ * Tipografia: Moderna (Inter) com acentos editoriais (Playfair Display)
  */
 
-:root {
+ :root {
     --off-white: #F7F5F0;
     --off-white-sec: #EFECE5;
     --black: #111111;
@@ -14,6 +14,7 @@
     --gold-light: #D1B878;
     --gray: #77736B;
     --white: #FFFFFF;
+    --border: rgba(17, 17, 17, 0.12);
     --container-max: 1440px;
     --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
@@ -34,7 +35,7 @@ body {
     background-color: var(--off-white);
     color: var(--black);
     font-family: 'Inter', sans-serif;
-    line-height: 1.5;
+    line-height: 1.6;
     overflow-x: hidden;
 }
 
@@ -44,24 +45,69 @@ img {
 }
 
 /* TIPOGRAFIA */
-h1, h2, h3, .title-serif, .manifesto-title, .impact-text, .impact-statement, .impact-text-large, .title-xl, .large-quote {
-    font-family: 'Playfair Display', serif;
-    font-weight: 500;
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
     line-height: 1.1;
-}
-
-p {
-    font-size: 1.1rem;
     color: var(--black);
 }
 
+p {
+    font-size: clamp(1rem, 1.15rem, 1.2rem);
+    line-height: 1.7;
+    color: var(--gray);
+}
+
+/* CLASSES EDITORIAIS (PLAYFAIR DISPLAY) */
+.title-serif, 
+.manifesto-title, 
+.impact-text, 
+.impact-statement, 
+.impact-text-large, 
+.title-xl, 
+.large-quote {
+    font-family: 'Playfair Display', serif;
+    font-weight: 500;
+}
+
+/* AUXILIARES */
 .gold { color: var(--gold) !important; }
 .white { color: var(--white) !important; }
-.white-opacity { color: rgba(255, 255, 255, 0.6); }
 .center { text-align: center; }
-.bg-black { background-color: var(--black); }
-.bg-black-soft { background-color: var(--black-soft); }
-.bg-secondary { background-color: var(--off-white-sec); }
+
+/* CONTROLE DE SEÇÕES E CONTRASTE */
+.bg-secondary {
+    background-color: var(--off-white-sec);
+}
+
+.bg-black, 
+.bg-black-soft, 
+.consórcio-strategy, 
+.calculator-brand, 
+.final-cta,
+.manifesto {
+    background-color: var(--black);
+    color: var(--white);
+}
+
+.bg-black h1, .bg-black h2, .bg-black h3, 
+.bg-black-soft h1, .bg-black-soft h2, .bg-black-soft h3,
+.consórcio-strategy h1, .consórcio-strategy h2, .consórcio-strategy h3,
+.calculator-brand h1, .calculator-brand h2, .calculator-brand h3,
+.final-cta h1, .final-cta h2, .final-cta h3,
+.manifesto h1, .manifesto h2, .manifesto h3 {
+    color: var(--white);
+}
+
+.bg-black p, 
+.bg-black-soft p, 
+.consórcio-strategy p, 
+.calculator-brand p, 
+.final-cta p,
+.manifesto p,
+.white-opacity {
+    color: rgba(255, 255, 255, 0.7);
+}
 
 /* CONTAINER */
 .container {
@@ -70,8 +116,26 @@ p {
     padding: 0 60px;
 }
 
-@media (max-width: 768px) {
-    .container { padding: 0 25px; }
+/* HEADER */
+.main-header {
+    background-color: rgba(247, 245, 240, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    height: 45px;
+    width: auto;
 }
 
 /* BUTTONS */
@@ -109,16 +173,6 @@ p {
     transform: translateY(-3px);
 }
 
-.btn-full {
-    width: 100%;
-    text-align: center;
-}
-
-.btn-large {
-    padding: 25px 60px;
-    font-size: 14px;
-}
-
 .btn-minimal {
     text-decoration: none;
     color: var(--black);
@@ -128,33 +182,6 @@ p {
     border-bottom: 2px solid var(--gold);
     padding-bottom: 4px;
     transition: var(--transition);
-}
-
-.btn-minimal:hover {
-    color: var(--gold);
-    border-color: var(--black);
-}
-
-/* HEADER */
-.main-header {
-    background-color: rgba(247, 245, 240, 0.95);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(0,0,0,0.05);
-    padding: 20px 0;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-.header-flex {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo {
-    height: 45px;
-    width: auto;
 }
 
 /* HERO BRAND */
@@ -167,23 +194,15 @@ p {
 
 .hero-brand-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1.1fr;
     gap: 80px;
     align-items: center;
 }
 
-.eyebrow {
-    display: block;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    margin-bottom: 30px;
-}
-
 .hero-brand h1 {
     font-size: clamp(48px, 6vw, 92px);
-    letter-spacing: -2px;
+    line-height: 0.95;
+    letter-spacing: -0.04em;
     margin-bottom: 30px;
 }
 
@@ -195,8 +214,6 @@ p {
 }
 
 .hero-brand-description {
-    font-size: 1.1rem;
-    color: var(--gray);
     margin-bottom: 40px;
     max-width: 500px;
 }
@@ -205,23 +222,19 @@ p {
     width: 100%;
     height: 750px;
     object-fit: cover;
-    border-radius: 4px;
-}
-
-@media (max-width: 1024px) {
-    .hero-brand-grid { grid-template-columns: 1fr; gap: 50px; }
-    .hero-brand-image img { height: 500px; }
 }
 
 /* MANIFESTO */
 .manifesto {
     padding: 160px 0;
+    text-align: center;
 }
 
 .manifesto-title {
+    font-family: 'Playfair Display', serif;
     font-size: clamp(44px, 8vw, 110px);
-    margin-bottom: 10px;
     line-height: 0.95;
+    font-weight: 500;
 }
 
 /* EDITORIAL GRID (PROBLEMA / BID) */
@@ -236,22 +249,18 @@ p {
     align-items: center;
 }
 
-.grid-editorial.reverse {
-    direction: rtl;
-}
-
-.grid-editorial.reverse .editorial-text {
-    direction: ltr;
-}
+.grid-editorial.reverse { direction: rtl; }
+.grid-editorial.reverse .editorial-text { direction: ltr; }
 
 .editorial-image img, .authority-image img {
     width: 100%;
-    aspect-ratio: 4/5;
+    aspect-ratio: 4 / 5;
     object-fit: cover;
 }
 
 .editorial-text h2 {
     font-size: clamp(36px, 4vw, 64px);
+    line-height: 1.05;
     margin-bottom: 40px;
 }
 
@@ -280,14 +289,10 @@ p {
     margin-top: 40px;
 }
 
-@media (max-width: 1024px) {
-    .grid-editorial, .grid-authority { grid-template-columns: 1fr; gap: 60px; }
-    .grid-editorial.reverse { direction: ltr; }
-}
-
 /* AUTHORITY (NIGEL) */
 .title-large {
     font-size: clamp(44px, 6vw, 88px);
+    line-height: 0.95;
     margin-bottom: 30px;
 }
 
@@ -303,6 +308,7 @@ p {
     border-top: 1px solid var(--border);
     display: flex;
     gap: 30px;
+    flex-wrap: wrap;
 }
 
 .tag {
@@ -317,7 +323,9 @@ p {
 }
 
 .impact-text {
+    font-family: 'Playfair Display', serif;
     font-size: clamp(40px, 7vw, 98px);
+    line-height: 0.95;
     margin-bottom: 80px;
     max-width: 1100px;
     margin-left: auto;
@@ -350,11 +358,6 @@ p {
     border-top: 1px solid var(--border);
     padding-top: 40px;
     display: inline-block;
-}
-
-@media (max-width: 768px) {
-    .thesis-visual-composition { flex-direction: column; }
-    .thesis-arrow { transform: rotate(90deg); }
 }
 
 /* CONSÓRCIO STRATEGY (DARK) */
@@ -402,18 +405,15 @@ p {
     color: var(--gold);
 }
 
-@media (max-width: 768px) {
-    .horizontal-flow-container { flex-direction: column; }
-    .h-flow-sep, .h-flow-arrow { transform: rotate(90deg); padding: 10px 0; }
-}
-
 /* LIQUIDEZ EDITORIAL */
 .liquidity-editorial {
     padding: 140px 0;
 }
 
 .impact-statement {
+    font-family: 'Playfair Display', serif;
     font-size: clamp(38px, 6vw, 92px);
+    line-height: 0.95;
     margin-bottom: 40px;
     max-width: 1000px;
 }
@@ -433,17 +433,32 @@ p {
     letter-spacing: 1px;
 }
 
-.liquidity-logic .plus, .liquidity-logic .arrow-right {
+.liquidity-logic .plus, 
+.liquidity-logic .arrow-right {
     color: var(--gold);
     font-size: 30px;
 }
 
-@media (max-width: 768px) {
-    .liquidity-logic { flex-direction: column; text-align: center; }
-    .liquidity-logic .arrow-right { transform: rotate(90deg); }
+/* LIFESTYLE */
+.lifestyle-brand, .lifestyle-brand-text {
+    padding: 140px 0;
 }
 
-/* LANCE STEPS */
+.lifestyle-brand .grid-editorial {
+    align-items: center;
+}
+
+.impact-text-large {
+    font-size: clamp(44px, 8vw, 110px);
+    margin-bottom: 30px;
+}
+
+.lead-soft {
+    font-size: 1.8rem;
+    font-weight: 500;
+}
+
+/* BID STEPS */
 .bid-steps {
     margin: 40px 0;
     font-weight: 800;
@@ -455,11 +470,14 @@ p {
     gap: 8px;
 }
 
-.arrow-v {
-    color: var(--gold);
-}
+.arrow-v { color: var(--gold); }
 
 /* SERELLO LIST */
+.serello-brand {
+    padding: 120px 0;
+    background-color: var(--off-white);
+}
+
 .logo-serello-large {
     height: 70px;
     width: auto;
@@ -481,7 +499,6 @@ p {
     text-transform: uppercase;
     letter-spacing: 3px;
     transition: var(--transition);
-    cursor: pointer;
 }
 
 .s-list-item:hover {
@@ -490,6 +507,11 @@ p {
 }
 
 /* COMPARISON TABLE */
+.comparison-brand {
+    padding: 120px 0;
+    background-color: var(--off-white);
+}
+
 .comparison-table-wrapper {
     margin-top: 60px;
     overflow-x: auto;
@@ -516,6 +538,11 @@ p {
 }
 
 /* TARGET PÚBLICO */
+.target-brand {
+    padding: 140px 0;
+    background-color: var(--off-white-sec);
+}
+
 .target-grid-brand {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -535,18 +562,11 @@ p {
     max-width: 700px;
     margin: 40px auto 0;
     font-style: italic;
-    color: var(--gray);
 }
 
-@media (max-width: 768px) {
-    .target-grid-brand { grid-template-columns: 1fr; }
-}
-
-/* CALCULATOR (DARK MODE) */
+/* CALCULATOR BRAND */
 .calculator-brand {
     padding: 120px 0;
-    background-color: var(--black-deep);
-    color: var(--white);
 }
 
 .calc-brand-wrapper {
@@ -574,13 +594,13 @@ p {
     font-weight: 800;
     letter-spacing: 2px;
     text-transform: uppercase;
-    color: rgba(255,255,255,0.5);
+    color: rgba(255,255,255,0.6);
 }
 
 #credit-val {
-    font-family: 'Playfair Display', serif;
     font-size: clamp(2rem, 4vw, 3.5rem);
     color: var(--gold);
+    font-weight: 700;
 }
 
 .brand-slider {
@@ -599,7 +619,6 @@ p {
     background-color: var(--gold);
     border-radius: 50%;
     cursor: pointer;
-    box-shadow: 0 0 15px rgba(184, 154, 90, 0.4);
 }
 
 .calc-brand-results {
@@ -615,54 +634,125 @@ p {
     border: 1px solid rgba(255,255,255,0.1);
 }
 
-.c-res-item.gold-border {
-    border-color: var(--gold);
-}
+.c-res-item.gold-border { border-color: var(--gold); }
 
 .c-res-item small {
     display: block;
     font-size: 10px;
     font-weight: 800;
     letter-spacing: 2px;
-    color: rgba(255,255,255,0.4);
+    color: rgba(255,255,255,0.5);
     margin-bottom: 10px;
 }
 
 .c-res-item span {
     font-size: 1.8rem;
     font-weight: 700;
+    color: var(--white);
 }
 
-@media (max-width: 1024px) {
-    .calc-brand-wrapper { grid-template-columns: 1fr; gap: 50px; }
-    .calc-brand-box { padding: 30px; }
+/* FAQ (EDITORIAL PREMIUM) */
+.faq-section {
+    padding: 100px 0;
 }
 
-/* LIFESTYLE (EDITORIAL TEXT) */
-.lifestyle-brand-text {
-    padding: 160px 0;
+.accordion {
+    max-width: 1000px;
+    margin: 50px auto 0;
 }
 
-.impact-text-large {
-    font-size: clamp(44px, 8vw, 110px);
-    margin-bottom: 30px;
+.accordion-item {
+    border-bottom: 1px solid var(--border);
 }
 
-.lead-soft {
-    font-size: 1.8rem;
-    font-weight: 500;
+.accordion-header {
+    width: 100%;
+    padding: 30px 0;
+    background: none;
+    border: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: left;
+    font-family: 'Inter', sans-serif;
+    color: var(--black);
+}
+
+.accordion-header::after {
+    content: '+';
+    font-size: 2rem;
+    color: var(--gold);
+}
+
+.accordion-header.active::after {
+    content: '-';
+}
+
+.accordion-body {
+    padding: 0 0 30px 0;
+    display: none;
     color: var(--gray);
 }
 
 /* FINAL CTA */
 .final-cta {
     padding: 160px 0;
+    background-color: var(--black);
+    color: var(--white);
 }
 
 .title-xl {
+    font-family: 'Playfair Display', serif;
     font-size: clamp(50px, 9vw, 130px);
-    margin-bottom: 50px;
     line-height: 0.9;
+    margin-bottom: 50px;
+    color: var(--white);
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 768px) {
+    .container { padding: 0 25px; }
+    
+    .hero-brand-grid, 
+    .grid-editorial, 
+    .grid-authority, 
+    .calc-brand-wrapper, 
+    .target-grid-brand, 
+    .calc-brand-results {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-brand h1 { font-size: clamp(42px, 12vw, 64px); }
+    .hero-brand-image img { height: 450px; }
+    .hero-brand-image { order: 2; }
+    .hero-brand-content { order: 1; }
+    
+    .grid-editorial.reverse { direction: ltr; }
+    
+    .thesis-visual-composition, 
+    .liquidity-logic { 
+        flex-direction: column; 
+        text-align: center;
+    }
+
+    .thesis-arrow { transform: rotate(90deg); }
+    .liquidity-logic .arrow-right { transform: rotate(90deg); }
+
+    .btn { width: 100%; }
+}
+
+@media (max-width: 600px) {
+    .manifesto { padding: 100px 0; }
+    .title-large { font-size: 42px; }
+    .impact-text { font-size: 38px; }
+}
+
+@media (max-width: 480px) {
+    .hero-brand h1 { font-size: 38px; }
+    .manifesto-title { font-size: 36px; }
 }
 
 /* FOOTER */
@@ -688,29 +778,3 @@ p {
     border-bottom: 1px solid var(--gold);
     padding-bottom: 5px;
 }
-
-/* FAQ (ACCORDION) */
-.faq-section { padding: 100px 0; }
-.accordion { max-width: 1000px; margin: 50px auto 0; text-align: left; }
-.accordion-item { border-bottom: 1px solid var(--border); }
-.accordion-header {
-    width: 100%;
-    padding: 30px 0;
-    background: none;
-    border: none;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 1.5rem;
-    font-weight: 600;
-    cursor: pointer;
-    text-align: left;
-    font-family: 'Inter', sans-serif;
-}
-.accordion-header::after {
-    content: '+';
-    font-size: 2rem;
-    color: var(--gold);
-}
-.accordion-header.active::after { content: '-'; }
-.accordion-body { padding: 0 0 30px 0; display: none; }
